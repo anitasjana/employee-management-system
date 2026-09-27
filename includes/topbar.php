@@ -18,7 +18,7 @@
 
         <div class="profile-dropdown" id="profileDropdown">
           <div>
-            <span class="topslide_dis_text">Anita</span>
+            <span class="topslide_dis_text"><?= $_SESSION['name'] ?? 'User' ?></span>
             <span class="online-dot"></span>
           </div>
           <i class="fas fa-chevron-down dropdown-arrow" id="dropdownArrow"></i>

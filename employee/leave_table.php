@@ -24,10 +24,9 @@ include("../includes/topbar.php");
             <th class="tableth1">Status</th>
         </tr>
         <?php
-        $a=mysqli_connect("localhost","root","","employee_managment");
-        $b="select * from leave_approve";
-
-        $c=mysqli_query($a,$b);
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT * FROM leave_approve WHERE user_id='$user_id'";
+        $c=mysqli_query($con,$sql);
         $v=1;
         while($row=mysqli_fetch_assoc($c)){
             if($v%2==0){
@@ -39,22 +38,24 @@ include("../includes/topbar.php");
                 <td><?php echo $row["last_date"];?></td>
                 <td><?php echo $row["subject"];?></td>
                 <td><?php echo $row["reason"];?></td>
-                <td><?php if($row["status"]==0){
-                    echo "pendding";
-                                }
-                        else if($row["status"]==1){
-                                    echo "approved";
-                        }
-                        else if($row["status"]==2){
-                            echo "rejected";
-                        }
-                        else{
-                            echo "";
-                        }
-                            ?></td> 
+                <td>
+                    <?php
+
+                    if ($row["status"] == 0) {
+                        echo "Pending";
+                    } 
+                    elseif ($row["status"] == 1) {
+                        echo "Approved";
+                    } 
+                    elseif ($row["status"] == 2) {
+                        echo "Rejected";
+                    }
+
+                    ?>
+                </td>
             </tr>
             <?php
-                   $v++;   
+                $v++;   
             }
             else{
                 ?>
@@ -65,20 +66,20 @@ include("../includes/topbar.php");
                 <td><?php echo $row["last_date"];?></td>
                 <td><?php echo $row["subject"];?></td>
                 <td><?php echo $row["reason"];?></td>
-                <td><?php if($row["status"]==0){
-                    echo "pendding";
-                                }
-                        else if($row["status"]==1){
-                                    echo "approved";
-                        }
-                        else if($row["status"]==2){
-                            echo "rejected";
-                        }
-                        else{
-                            echo "";
-                        }
-                            ?>
-             </tr>
+                <td>
+                    <?php
+
+                    if ($row["status"] == 0) {
+                        echo "Pending";
+                    } 
+                    elseif ($row["status"] == 1) {
+                        echo "Approved";
+                    } 
+                    elseif ($row["status"] == 2) {
+                        echo "Rejected";
+                    }
+                    ?>
+                </td>
              <?php
              $v++;
             }
