@@ -25,11 +25,13 @@ include("../includes/topbar.php");
         </tr>
         <?php
         $user_id = $_SESSION['user_id'];
-        $sql = "SELECT * FROM leave_approve WHERE user_id='$user_id'";
-        $c=mysqli_query($con,$sql);
+        // $sql = "SELECT * FROM leave_approve WHERE user_id='$user_id'";
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT * FROM leave_approve";
+        $c = mysqli_query($con, $sql);
         $v=1;
+        
         while($row=mysqli_fetch_assoc($c)){
-            if($v%2==0){
             ?>
             <tr style="background: #e4ebedb8; box-shadow: 0px 0px 5px 0px rgb(197, 197, 197);">
                 <td><?php echo $v;?></td>
@@ -57,34 +59,8 @@ include("../includes/topbar.php");
             <?php
                 $v++;   
             }
-            else{
-                ?>
-                <tr style="background-color:rgba(252, 252, 252, 0.72); box-shadow: 0px 0px 5px 0px rgb(197, 197, 197);">
-                <td><?php echo $v;?></td>
-                <td><?php echo $row["name"];?></td>
-                <td><?php echo $row["start_date"];?></td>
-                <td><?php echo $row["last_date"];?></td>
-                <td><?php echo $row["subject"];?></td>
-                <td><?php echo $row["reason"];?></td>
-                <td>
-                    <?php
-
-                    if ($row["status"] == 0) {
-                        echo "Pending";
-                    } 
-                    elseif ($row["status"] == 1) {
-                        echo "Approved";
-                    } 
-                    elseif ($row["status"] == 2) {
-                        echo "Rejected";
-                    }
-                    ?>
-                </td>
-             <?php
-             $v++;
-            }
-            }
             ?>
+            
     </table> 
     </div>
     </div>

@@ -33,8 +33,7 @@ include("../includes/topbar.php");
                 <!-- <textarea="text" placeholder="reason" name="reason"> -->
             </div>
 
-            <a href="leave_table.php">
-        <button type="submit" class="button_submit">Submit</button></a>
+            <button type="submit" class="button_submit">Submit</button>
 </form>
         </div>
     </div>
