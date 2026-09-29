@@ -109,7 +109,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <!-- Logout -->
       <div class="logout-wrap">
         <ul class="nav-list">
-          <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+          <li><a href="<?= BASE_URL ?>/logout.php"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
         </ul>
       </div>
       <div style="height:6px;"></div>
