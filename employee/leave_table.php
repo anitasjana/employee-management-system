@@ -25,9 +25,10 @@ include("../includes/topbar.php");
         </tr>
         <?php
         $user_id = $_SESSION['user_id'];
-        // $sql = "SELECT * FROM leave_approve WHERE user_id='$user_id'";
         $user_id = $_SESSION['user_id'];
-        $sql = "SELECT * FROM leave_approve";
+        $sql = "SELECT * FROM leave_approve
+        WHERE user_id='$user_id'
+        ORDER BY id DESC";
         $c = mysqli_query($con, $sql);
         $v=1;
         

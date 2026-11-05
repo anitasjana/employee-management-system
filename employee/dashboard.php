@@ -4,11 +4,20 @@ ini_set('display_errors', 1);
 
 include("../includes/auth.php");
 include("../includes/db.php");
+$user_id=$_SESSION['user_id'];
 
-$total = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve"));
-$pending = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE status='0'"));
-$approved = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE status='1'"));
-$rejected = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE status='2'"));
+$sql = "SELECT COUNT(id) AS total FROM leave_approve WHERE user_id='$user_id'";
+
+$result = mysqli_query($con, $sql);
+
+if (!$result) {
+    die("SQL Error: " . mysqli_error($con));
+}
+$total = mysqli_fetch_assoc($result);
+
+$pending = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE user_id='$user_id' AND status='0'"));
+$approved = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE user_id='$user_id' AND status='1'"));
+$rejected = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(id) AS total FROM leave_approve WHERE user_id='$user_id' AND status='2'"));
 
 include("../includes/header.php");
 include("../includes/sidebar.php");
