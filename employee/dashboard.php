@@ -1,10 +1,10 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 include("../includes/auth.php");
 include("../includes/db.php");
-$user_id=$_SESSION['user_id'];
+$user_id = (int) $_SESSION['user_id'];
 
 $sql = "SELECT COUNT(id) AS total FROM leave_approve WHERE user_id='$user_id'";
 
