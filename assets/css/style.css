@@ -10,6 +10,7 @@
       display: flex;
       min-height: 100vh;
       position: relative;
+      overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
 
@@ -185,7 +186,10 @@
     .topslide {
     width: 80.8%;
     height: 65px;
-    position: absolute;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
     right: 0px;
     align-items: center;
     justify-content: space-between;
@@ -411,7 +415,6 @@
 } */
 
 .bodyslide{ 
-    /* border: 1px solid black; */
     width: 80%;
     height: 645px;
     position: absolute;
@@ -419,6 +422,15 @@
     right: 0px;
     background-color: #efefef;
     display: flex;
+
+    /* width: 80%;
+    min-height: calc(100vh - 82px);
+    height: auto;
+    position: relative;
+    margin-left: auto;
+    margin-top: 82px;
+    display: flex;
+    box-sizing: border-box; */
 }
 .dashbord_body{
   display: flex;
@@ -597,12 +609,6 @@ font-size: 19px;
     position: relative;
 }
 
-.tableth1{
-    font-weight: 600;
-    font-size: 14px;
-    color: #ededed;
-    padding: 12px 95px 12px 10px;
-}
 .tabletr2 ,.tabletr3{
     text-align: center;
     font-size: smaller;

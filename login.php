@@ -16,18 +16,20 @@
                 <div class="login_user_icon">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <input class="login_user_text" placeholder="Email or Phone" name="email">
+                <input type="text" class="login_user_text" placeholder="Email or Phone" name="email">
             </div>
             <div class="login_user">
                 <div class="login_user_icon">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input class="login_user_text" placeholder="Password" name="password">
+                <input type="password" class="login_user_text" placeholder="Password" name="password">
                 <div class="iconeye"><i class="fa-solid fa-eye" ></i></div>
                 </div>
                 
             <div class="login_forgot"> <input type="checkbox" >Forgot password?</div>
-                <a href="dashboard.php"><button type="submit" class="login_login">Login</button></a>
+                
+                    <button type="submit" class="login_login">Login</button>
+                
             <p class="sign_p">Not an account? <span class="span_sign">Sign in</span></p>
         </div>
     </div>

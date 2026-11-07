@@ -1,13 +1,7 @@
 .bodyslide_table{
     display: grid;
 }
-.tableth1{
-    font-weight: 600;
-    font-size: 17px;
-    color: #ededed;
-    padding: 12px 89px 12px 15px;
-    font-family: sans-serif;
-}
+
 .tabletr2 ,.tabletr3{
     text-align: center;
     font-size: smaller;

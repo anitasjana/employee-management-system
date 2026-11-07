@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/admin/form-addusers.css">
     <!-- <link rel="stylesheet" href="../assets/css/admin/table.css">     -->
     <link rel="stylesheet" href="../assets/css/employee/table.css">
+    <link rel="stylesheet" href="../assets/css/admin/leave_table.css">
     <!-- <link rel="stylesheet" href="../assets/css/table.css"> -->
     <!-- <link rel="stylesheet" href="../assets/css/admin/leave_table.css"> -->
     <link rel="stylesheet" href="../assets/css/admin/addusers.css">

@@ -39,34 +39,64 @@ include("../includes/topbar.php");
                 Add Student</div></a>
         </div>
     </div>
+    <div class="table-wrapper">
     <table class="maintable">
         <tr class="tabletr1">
-            <th class="tableth1">id</th>
+            <th class="tableth1">ID</th>
+            <th class="tableth1">Image</th>
             <th class="tableth1">Name</th>
-            <th class="tableth1">email</th>
-            <th class="tableth1">password</th>
-            <th class="tableth1">image</th>
-            <th class="tableth1">type</th>
-            <th class="tableth1">Edit</th>
-            <th class="tableth1">delete</th>
+            <th class="tableth1">Email</th>
+            <th class="tableth1">Phone</th>
+            <th class="tableth1">Gender</th>
+            <th class="tableth1">Department</th>
+            <th class="tableth1">Designation</th>
+            <th class="tableth1">Joining Date</th>
+            <th class="tableth1">Status</th>
+            <th class="tableth1">Action</th>
         </tr>
         <?php
         $connection=mysqli_connect("localhost","root","","employee_managment");
-        $b="select * from users where type='2'";
+        $b = "SELECT * FROM users WHERE type = 2 ORDER BY id DESC";
         $data=mysqli_query($connection,$b);
         $v=1;
         while($row=mysqli_fetch_assoc($data)){
             if($v%2==0){
             ?>
             <tr style="background: #e4ebedb8; box-shadow: 0px 0px 5px 0px rgb(197, 197, 197);">
-                <td><?php echo $v;?></td>
-                <td><?php echo $row["name"];?></td>
-                <td><?php echo $row["email"];?></td>
-                <td><?php echo $row["password"];?></td>
-                <td><img height="80" width="80" src="/employee_managment/uploads/<?php echo $row["image"];?>"></td>
-                <td><?php echo $row["type"];?></td>
-                <td> <a href="edit_users.php?id=<?php echo $row["id"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td> <a href="delete_users.php?id=<?php echo $row["id"];?>"><i class="fa-solid fa-trash"></i></a></td>
+<td><?php echo $row["id"]; ?></td>
+
+<td>
+    <img height="50" width="50"
+         src="/employee_managment/uploads/<?php echo $row["image"]; ?>">
+</td>
+
+<td><?php echo $row["name"]; ?></td>
+<td><?php echo $row["email"]; ?></td>
+<td><?php echo $row["phone"]; ?></td>
+<td><?php echo $row["gender"]; ?></td>
+<td><?php echo $row["department"]; ?></td>
+<td><?php echo $row["designation"]; ?></td>
+<td><?php echo $row["joining_date"]; ?></td>
+
+<td>
+    <?php
+    if($row["status"] == 1){
+        echo "Active";
+    } else {
+        echo "Inactive";
+    }
+    ?>
+</td>
+
+<td>
+    <a href="edit_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+
+    <a href="delete_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+</td>
             </tr>
             <?php
                    $v++;   
@@ -74,14 +104,48 @@ include("../includes/topbar.php");
             else{
                 ?>
                 <tr style="background-color:rgba(252, 252, 252, 0.72); box-shadow: 0px 0px 5px 0px rgb(197, 197, 197);">
-                <td><?php echo $v;?></td>
-                <td><?php echo $row["name"];?></td>
-                <td><?php echo $row["email"];?></td>
-                <td><?php echo $row["password"];?></td>
-                <td><img height="80" width="80" src="/employee_managment/uploads/<?php echo $row["image"];?>"></td>
-                <td><?php echo $row["type"];?></td>
-                <td> <a href="edit_users.php ? id=<?php echo $row["id"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                <td> <a href="delete_users.php ? id=<?php echo $row["id"];?>"><i class="fa-solid fa-trash"></i></a></td>
+<td><?php echo $row["id"]; ?></td>
+
+<td>
+    <img height="50" width="50"
+         src="/employee_managment/uploads/<?php echo $row["image"]; ?>">
+</td>
+
+<td><?php echo $row["name"]; ?></td>
+<td><?php echo $row["email"]; ?></td>
+<td><?php echo $row["phone"]; ?></td>
+<td><?php echo $row["gender"]; ?></td>
+<td><?php echo $row["department"]; ?></td>
+<td><?php echo $row["designation"]; ?></td>
+<td><?php echo $row["joining_date"]; ?></td>
+
+<td>
+    <?php
+    if($row["status"] == 1){
+        echo "Active";
+    } else {
+        echo "Inactive";
+    }
+    ?>
+</td>
+
+<td>
+    <a href="edit_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+
+    <a href="delete_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+</td>
+    <a href="edit_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+
+    <a href="delete_users.php?id=<?php echo $row["id"]; ?>">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+</td>
              </tr>
              <?php
              $v++;
@@ -89,6 +153,7 @@ include("../includes/topbar.php");
             }
             ?>
     </table>
+    </div>
     </div>
     </div>
 
